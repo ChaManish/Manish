@@ -4,55 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 400px;
+            height: 500px;
+            border: 2px solid black;
+            margin: auto;
+            margin-top: 30px;
+            border-radius: 20px;
+            background-color: wheat;
+           
+        }
+        h1{
+            text-align: center;
+            margin-top: 10px;
+        }
+        .input{
+            font-size: 20px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .div{
+            display: flex;
+            flex-direction: column;
+            margin-left: 150px;
+            margin-top: 20px;  
+            gap: 10px;
+        }
+        #btn{
+            width: 100px;
+            height: 20px;
+            font-size: 15px;
+           margin-top: 20px;
+           margin-left: 140px;
+        }
+        #Result{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+       
+    </style>
 </head>
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } 
-  
-  .container{
-    height: 70vh;
-    width: 50%;
-    border: 2px solid black;
-    margin: auto;
-    align-items: center;
- display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    background: url(index.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-  .box{
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 2px 3px 4px 4px ;
-    color: yellow;
-  }  
-    .title{
-      color: yellow;
-    }
-    
-   
-     
-   
-</style>
 <body>
     <div class="container">
-        <h2 class="title">Random Password Generator</h2>
-        <div style="margin-top: 10px; width: 200px;" id="err"></div>
-         <input type="text" id="Password" placeholder="Loading.....">
-        <div><input type="text" id="Password1" placeholder="Enter Password Length Here ..."></div>
-        <div class="box"><i>Include at least at one type</i><br>
-        <div><input type="checkbox" name="radio" id="Lowercase"><label for="Lowercase">Lowercase Alphabets</label></div>
-        <div><input type="checkbox" name="radio" id="Uppercase"><label for="Uppercase">Uppercase Alphabets</label></div>
-        <div><input type="checkbox" name="radio" id="Symbol"><label for="Symbol">Symbol</label></div>
-        <div><input type="checkbox" name="radio" id="number"><label for="number">Number</label></div>
-    <button id="btn">Generate Password</button></div>
+        <h1>Temp - Converter</h1>
+        <div class="input"> Enter Value :<input type="number" name="input" id="input"></div>
+        <div class="div">
+          <div class="click"><input type="radio" name="radio" id="click"><label for="radio"> :Converter - F</label></div> 
+          <div class="click1"><input type="radio" name="radio" id="click1"><label for="radio"> :Converter - C</label></div> 
+        </div>
+        <button id="btn">Submit</button>
+        <div id="Result">Result:</div>
+
     </div>
-    <script src="script.js"></script>
 </body>
+<script>
+    let Result = document.getElementById('Result')
+    let input = document.getElementById('input');
+    let click = document.getElementById('click');
+    let click1 = document.getElementById('click1');
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click',function(){
+        let result;
+        if(input.value == "")alert("Enter the value");
+        else if(click.checked){
+            result = 5*(input.value - 32)/9
+        }
+        else {
+            result = 9*(input.value)/5 + 32;
+        }
+        Result.innerHTML= `${result.toFixed(2)}<sup>o</sup>C`;
+        
+        
+    })
+</script>
 </html>
